@@ -17,3 +17,7 @@ Extended the project by:
         made snake and food spawn in random location
         adjusted the way text is displayed on game over
     Added variable to keep track of high score
+
+Issue found:
+    If game doesn't work check python version.
+        - game worked on windows that had version 3.12, but not on mac 3.9.6
