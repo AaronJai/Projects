@@ -180,11 +180,14 @@ public class TicTacToe {
         tile.setBackground(Color.gray);
         textLabel.setText(currentPlayer + " is the winner!");
     
-        // update score
-        if (currentPlayer == playerX) {
-            playerXScore++;
-        } else {
-            playerOScore++;
+        // Increment score only if the game is not already over
+        if (!gameOver) {
+            if (currentPlayer == playerX) {
+                playerXScore++;
+            } else {
+                playerOScore++;
+            }
+            gameOver = true; // Set game over flag after updating the score
         }
     
         // Update scores after each win
