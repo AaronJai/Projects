@@ -63,12 +63,11 @@ public class TicTacToe {
 
         // Add components to frame
         frame.add(textPanel, BorderLayout.NORTH); // add panel to frame. Second argument pushes text to the top (2)
-        frame.add(boardPanel);
         frame.add(bottomPanel, BorderLayout.SOUTH);
 
         boardPanel.setLayout(new GridLayout(3, 3));
-        boardPanel.setBackground(Color.darkGray);
         frame.add(boardPanel);
+        boardPanel.setBackground(Color.darkGray);
 
         // adding buttons
         for (int r = 0; r < 3; r++) {
