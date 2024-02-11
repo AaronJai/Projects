@@ -8,11 +8,14 @@ Created game using:
 
 Functionalities added:
     Encapsulation
+    Game reset and exit game
 
 Functionalities to add:
-    Game reset after game over,
-    Added option to select game difficulty - easy, medium, hard.
-    Added a visible bar to show time required for player to make a move
-    Speed of game slowly increases at different rates for each difficulty during the game
-    Highscore to keep track of the highest score which can be seen for each difficulty if the player switches between different modes in the same playthrough.
-    Added ability to exit playing within the game
+    Added a visible bar to show time required for player to make a move, slowly gets faster as score increases.
+
+
+Maybe add?
+    option to select game difficulty - easy, medium, hard.
+    - for this create a start to prompt user - like games do.
+    Highscore for each game mode saved - for same playthrough
+    

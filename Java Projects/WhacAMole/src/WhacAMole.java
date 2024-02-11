@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class WhacAMole {
     private static final int BOARD_WIDTH = 600;
-    private static final int BOARD_HEIGHT = 650;
+    private static final int BOARD_HEIGHT = 700;
 
     private ImageIcon moleIcon;
     private ImageIcon plantIcon;
@@ -16,10 +16,13 @@ public class WhacAMole {
     private JButton[] board;
     private JButton currMoleTile;
     private JButton currPlantTile;
+    private JButton resetButton;
+    private JButton exitButton;
     private Random random;
     private Timer moleTimer;
     private Timer plantTimer;
     private int score;
+    private int highScore;
 
     public WhacAMole() {
         random = new Random(); // Initialise the random object
@@ -35,7 +38,7 @@ public class WhacAMole {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         frame = new JFrame("WhacAMole");
         frame.setSize(BOARD_WIDTH, BOARD_HEIGHT);
         frame.setLocationRelativeTo(null);
@@ -45,27 +48,26 @@ public class WhacAMole {
         frame.setVisible(true);
 
         textLabel = new JLabel();
-        textLabel.setFont(new Font("Arial", Font.PLAIN, 50));
+        textLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
-        textLabel.setText("Score: 0");
-        textLabel.setOpaque(true);
+        textLabel.setText("High Score: 0    Score: 0");
 
         textPanel = new JPanel();
         textPanel.setLayout(new BorderLayout());
-        textPanel.add(textLabel);
+        textPanel.add(textLabel, BorderLayout.CENTER);
         frame.add(textPanel, BorderLayout.NORTH);
 
         boardPanel = new JPanel();
         boardPanel.setLayout(new GridLayout(3, 3));
         frame.add(boardPanel);
         boardPanel.setBackground(Color.BLACK);
-
+    
         // Load icons
         Image plantImg = new ImageIcon(getClass().getResource("piranha.png")).getImage();
         plantIcon = new ImageIcon(plantImg.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH));
         Image moleImg = new ImageIcon(getClass().getResource("monty.png")).getImage();
         moleIcon = new ImageIcon(moleImg.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH));
-
+    
         board = new JButton[9];
         for (int i = 0; i < 9; i++) {
             JButton tile = new JButton();
@@ -78,6 +80,28 @@ public class WhacAMole {
                 }
             });
         }
+    
+        // Add reset button
+        resetButton = new JButton("Reset Game");
+        resetButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                resetGame();
+            }
+        });
+
+        // Add exit button
+        exitButton = new JButton("Exit Game");
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.add(resetButton);
+        buttonPanel.add(exitButton);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
     }
 
     private void initializeTimers() {
@@ -134,14 +158,37 @@ public class WhacAMole {
     private void handleTileClick(JButton tile) {
         if (tile == currMoleTile) {
             score++;
-            textLabel.setText("Score: " + score);
+            updateScores();
         } else if (tile == currPlantTile) {
-            textLabel.setText("Game Over: " + score);
-            moleTimer.stop();
-            plantTimer.stop();
-            for (JButton button : board) {
-                button.setEnabled(false);
-            }
+            endGame();
         }
     }
+    
+    private void updateScores() {
+        // Update high score if needed
+        if (score > highScore) {
+            highScore = score;
+        }
+        // Update text label with current scores
+        textLabel.setText("High Score: " + highScore + "\nScore: " + score);
+    }
+    
+    private void endGame() {
+        textLabel.setText("Game Over\nHigh Score: " + highScore + "\nScore: " + score);
+        moleTimer.stop();
+        plantTimer.stop();
+        for (JButton button : board) {
+            button.setEnabled(false);
+        }
+    }
+    
+    private void resetGame() {
+        score = 0;
+        textLabel.setText("High Score: " + highScore + "\nScore: " + score);
+        moleTimer.start();
+        plantTimer.start();
+        for (JButton button : board) {
+            button.setEnabled(true);
+        }
+    }    
 }
