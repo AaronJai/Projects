@@ -12,4 +12,7 @@ After the guide I added further functionality to the game such as a Reset Button
 
 Problem is in checkwinner and setwinner.
     the reason the score goes up by 3 is also because of the for loop in checkwinner which calls setwinner 3 times because its designed to colour the squares that won the game. so, to setwinner it thinks playerx is incremented 3 times
+    new - problem solved
+
+added encapsulation
 
