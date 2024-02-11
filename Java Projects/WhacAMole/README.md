@@ -1,18 +1,18 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Whack a Mole Game
 
-## Folder Structure
+Created game using:
+    built-in swing awt graphics libary,
+    click handlers to whack the mole,
+    randomly spawn mole and piranha plant using Timer and Random modules
 
-The workspace contains two folders by default, where:
+Functionalities added:
+    Encapsulation
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Functionalities to add:
+    Game reset after game over,
+    Added option to select game difficulty - easy, medium, hard.
+    Added a visible bar to show time required for player to make a move
+    Speed of game slowly increases at different rates for each difficulty during the game
+    Highscore to keep track of the highest score which can be seen for each difficulty if the player switches between different modes in the same playthrough.
+    Added ability to exit playing within the game
