@@ -13,6 +13,7 @@ public class WhacAMole {
     private JLabel textLabel;
     private JPanel textPanel;
     private JPanel boardPanel;
+    private JProgressBar bar;
     private JButton[] board;
     private JButton currMoleTile;
     private JButton currPlantTile;
@@ -23,6 +24,7 @@ public class WhacAMole {
     private Timer moleTimer;
     private Timer plantTimer;
     private Timer secondPlantTimer;
+    private Timer progressBarTimer;
     private int score;
     private int highScore;
 
@@ -57,12 +59,25 @@ public class WhacAMole {
         textPanel = new JPanel();
         textPanel.setLayout(new BorderLayout());
         textPanel.add(textLabel, BorderLayout.CENTER);
-        frame.add(textPanel, BorderLayout.NORTH);
+        //frame.add(textPanel, BorderLayout.NORTH);
 
         boardPanel = new JPanel();
         boardPanel.setLayout(new GridLayout(3, 3));
         frame.add(boardPanel);
         boardPanel.setBackground(Color.BLACK);
+
+        // Initialise progress bar
+        bar = new JProgressBar();
+        bar.setValue(0);
+        bar.setStringPainted(true);
+        //frame.add(bar, BorderLayout.SOUTH);
+
+        JPanel infoPanel = new JPanel();
+        infoPanel.setLayout(new FlowLayout());
+        infoPanel.add(textPanel);
+        infoPanel.add(bar);
+        frame.add(infoPanel, BorderLayout.NORTH);
+
     
         // Load icons
         Image plantImg = new ImageIcon(getClass().getResource("piranha.png")).getImage();
@@ -107,15 +122,16 @@ public class WhacAMole {
     }
 
     private void initialiseTimers() {
-        moleTimer = new Timer(500, e -> setMole());
-        plantTimer = new Timer(800, e -> setPlant());
-        secondPlantTimer = new Timer(1000, e -> setSecondPlant());
+        moleTimer = new Timer(600, e -> setMole());
+        plantTimer = new Timer(900, e -> setPlant());
+        secondPlantTimer = new Timer(1100, e -> setSecondPlant());
     }
 
     private void startGame() {
         moleTimer.start();
         plantTimer.start();
         secondPlantTimer.start();
+        updateProgressBar();
     }
 
     private void setMole() {
@@ -182,14 +198,40 @@ public class WhacAMole {
         //System.out.println("Second plant placed at tile: " + num);
     }
     
+    private void updateProgressBar() {
+        // Initialize a Timer with a delay of 10 milliseconds
+        //int decrementRate = 1 + score;
+        progressBarTimer = new Timer(500 - (4 * score), new ActionListener() {
+            int counter = 100; // Initial counter value
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Update the progress bar value
+                bar.setValue(counter);
+                // Decrement the counter
+                counter -= 1;
+                // If counter reaches 0, stop the timer and end game
+                if (counter <= 0) {
+                    ((Timer)e.getSource()).stop();
+                    endGame();
+                }
+            }
+        });
+        
+        // Start the timer
+        progressBarTimer.start();
+    }
+    
 
     private void handleTileClick(JButton tile) {
         if (tile == currMoleTile) {
             score++;
             updateScores();
+            progressBarTimer.stop();
+            updateProgressBar();
             moleTimer.restart();
             setMole();
-        } else if (tile == currPlantTile) {
+        } else if (tile == currPlantTile || tile == currPlantTile2) {
             endGame();
         }
     }
@@ -207,6 +249,8 @@ public class WhacAMole {
         textLabel.setText("Game Over\nHigh Score: " + highScore + "\nScore: " + score);
         moleTimer.stop();
         plantTimer.stop();
+        secondPlantTimer.stop();
+        progressBarTimer.stop();
         for (JButton button : board) {
             button.setEnabled(false);
         }
