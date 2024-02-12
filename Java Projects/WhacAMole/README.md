@@ -12,9 +12,10 @@ Functionalities added:
     -Added a second plant with delayed spawn
         -Created a second setPlant function, 
         -separate variable to represent a second plant tile to handle plant tiles indepedently. Without this the original plant would say its spawning in but not visible or clickable.
+        - Added a visible bar to show time required for player to make a move, slowly gets faster as score increases.
 
 Functionalities to add:
-    Added a visible bar to show time required for player to make a move, slowly gets faster as score increases.
+    
 
 
 Maybe add?
