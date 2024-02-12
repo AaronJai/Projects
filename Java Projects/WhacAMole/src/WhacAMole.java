@@ -16,18 +16,20 @@ public class WhacAMole {
     private JButton[] board;
     private JButton currMoleTile;
     private JButton currPlantTile;
+    private JButton currPlantTile2;
     private JButton resetButton;
     private JButton exitButton;
     private Random random;
     private Timer moleTimer;
     private Timer plantTimer;
+    private Timer secondPlantTimer;
     private int score;
     private int highScore;
 
     public WhacAMole() {
         random = new Random(); // Initialise the random object
         initializeUI();
-        initializeTimers();
+        initialiseTimers();
         startGame();
     }
 
@@ -104,14 +106,16 @@ public class WhacAMole {
         frame.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void initializeTimers() {
-        moleTimer = new Timer(1000, e -> setMole());
-        plantTimer = new Timer(1500, e -> setPlant());
+    private void initialiseTimers() {
+        moleTimer = new Timer(500, e -> setMole());
+        plantTimer = new Timer(800, e -> setPlant());
+        secondPlantTimer = new Timer(1000, e -> setSecondPlant());
     }
 
     private void startGame() {
         moleTimer.start();
         plantTimer.start();
+        secondPlantTimer.start();
     }
 
     private void setMole() {
@@ -127,7 +131,7 @@ public class WhacAMole {
         do {
             num = random.nextInt(9);
             tile = board[num];
-        } while (tile == currPlantTile);
+        } while (tile == currPlantTile || tile == currPlantTile2);
     
         // Set tile to mole
         currMoleTile = tile;
@@ -147,11 +151,35 @@ public class WhacAMole {
         do {
             num = random.nextInt(9);
             tile = board[num];
-        } while (tile == currMoleTile);
+        } while (tile == currMoleTile || tile == currPlantTile2);
     
         // Set tile to plant
         currPlantTile = tile;
         currPlantTile.setIcon(plantIcon);
+
+        //System.out.println("Plant placed at tile: " + num);
+    }
+
+    private void setSecondPlant() {
+        // Remove plant from current tile
+        if (currPlantTile2 != null) {
+            currPlantTile2.setIcon(null);
+            currPlantTile2 = null;
+        }
+    
+        // Randomly select another tile
+        int num;
+        JButton tile;
+        do {
+            num = random.nextInt(9);
+            tile = board[num];
+        } while (tile == currMoleTile || tile == currPlantTile);
+    
+        // Set tile to plant
+        currPlantTile2 = tile;
+        currPlantTile2.setIcon(plantIcon);
+
+        //System.out.println("Second plant placed at tile: " + num);
     }
     
 
@@ -159,6 +187,8 @@ public class WhacAMole {
         if (tile == currMoleTile) {
             score++;
             updateScores();
+            moleTimer.restart();
+            setMole();
         } else if (tile == currPlantTile) {
             endGame();
         }
