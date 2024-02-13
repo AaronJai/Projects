@@ -13,15 +13,13 @@ Functionalities added:
         -Created a second setPlant function, 
         -separate variable to represent a second plant tile to handle plant tiles indepedently. Without this the original plant would say its spawning in but not visible or clickable.
         - Added a visible bar to show time required for player to make a move, slowly gets faster as score increases.
+        - created home panel to introduce game with difficulty levels (normal, medium, hard).
+        initially adding home panel to frame would conflict with the game (they would overlap) so i instead separated them into two GUI's
 
-Functionalities to add:
-    
-
-
-Maybe add?
-    option to select game difficulty - easy, medium, hard.
-    - for this create a start to prompt user - like games do.
-    Highscore for each game mode saved - for same playthrough
+Possible functionalities to add:
+    - Highscore for each game mode saved 
+    would have to be for same playthrough
+    - difficulty level didn't change rate of progress bar decrease.
     
 Notes:
     Noticed adding encapsulation allowed better maintainability of code for example by simply calling a method instead of rewriting code.

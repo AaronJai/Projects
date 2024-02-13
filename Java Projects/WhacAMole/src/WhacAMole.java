@@ -20,6 +20,7 @@ public class WhacAMole {
     private JButton currPlantTile2;
     private JButton resetButton;
     private JButton exitButton;
+    private JButton backButton;
     private Random random;
     private Timer moleTimer;
     private Timer plantTimer;
@@ -28,10 +29,11 @@ public class WhacAMole {
     private int score;
     private int highScore;
 
-    public WhacAMole() {
+    public WhacAMole(HomePageGUI.Difficulty difficulty) {
         random = new Random(); // Initialise the random object
         initializeUI();
-        initialiseTimers();
+        setDifficultyLevel(difficulty);
+        // initialiseTimers();
         startGame();
     }
 
@@ -59,7 +61,6 @@ public class WhacAMole {
         textPanel = new JPanel();
         textPanel.setLayout(new BorderLayout());
         textPanel.add(textLabel, BorderLayout.CENTER);
-        //frame.add(textPanel, BorderLayout.NORTH);
 
         boardPanel = new JPanel();
         boardPanel.setLayout(new GridLayout(3, 3));
@@ -70,14 +71,12 @@ public class WhacAMole {
         bar = new JProgressBar();
         bar.setValue(0);
         bar.setStringPainted(true);
-        //frame.add(bar, BorderLayout.SOUTH);
 
         JPanel infoPanel = new JPanel();
         infoPanel.setLayout(new FlowLayout());
         infoPanel.add(textPanel);
         infoPanel.add(bar);
         frame.add(infoPanel, BorderLayout.NORTH);
-
     
         // Load icons
         Image plantImg = new ImageIcon(getClass().getResource("piranha.png")).getImage();
@@ -100,6 +99,7 @@ public class WhacAMole {
     
         // Add reset button
         resetButton = new JButton("Reset Game");
+        resetButton.setFocusable(false);
         resetButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetGame();
@@ -108,23 +108,56 @@ public class WhacAMole {
 
         // Add exit button
         exitButton = new JButton("Exit Game");
+        exitButton.setFocusable(false);
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
 
+        // Add back button
+        backButton = new JButton("Back");
+        exitButton.setFocusable(false);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                new HomePageGUI();
+            }
+        });
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.add(backButton);
         buttonPanel.add(resetButton);
         buttonPanel.add(exitButton);
         frame.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void initialiseTimers() {
-        moleTimer = new Timer(600, e -> setMole());
-        plantTimer = new Timer(900, e -> setPlant());
-        secondPlantTimer = new Timer(1100, e -> setSecondPlant());
+    enum Difficulty {
+        NORMAL,
+        MEDIUM,
+        HARD
+    }
+
+    private void setDifficultyLevel(HomePageGUI.Difficulty difficulty) {
+        switch (difficulty) {
+            case NORMAL:
+                moleTimer = new Timer(1000, e -> setMole());
+                plantTimer = new Timer(1300, e -> setPlant());
+                secondPlantTimer = new Timer(1500, e -> setSecondPlant());
+                break;
+            case MEDIUM:
+                moleTimer = new Timer(800, e -> setMole());
+                plantTimer = new Timer(1100, e -> setPlant());
+                secondPlantTimer = new Timer(1300, e -> setSecondPlant());
+                break;
+            case HARD:
+                moleTimer = new Timer(600, e -> setMole());
+                plantTimer = new Timer(900, e -> setPlant());
+                secondPlantTimer = new Timer(1100, e -> setSecondPlant());
+                break;
+        }
     }
 
     private void startGame() {
@@ -199,8 +232,12 @@ public class WhacAMole {
     }
     
     private void updateProgressBar() {
+        // Stop the current progress bar timer
+        if (progressBarTimer != null && progressBarTimer.isRunning()) {
+            progressBarTimer.stop();
+        }
+
         // Initialize a Timer with a delay of 10 milliseconds
-        //int decrementRate = 1 + score;
         progressBarTimer = new Timer(500 - (4 * score), new ActionListener() {
             int counter = 100; // Initial counter value
             
@@ -221,13 +258,11 @@ public class WhacAMole {
         // Start the timer
         progressBarTimer.start();
     }
-    
 
     private void handleTileClick(JButton tile) {
         if (tile == currMoleTile) {
             score++;
             updateScores();
-            progressBarTimer.stop();
             updateProgressBar();
             moleTimer.restart();
             setMole();
