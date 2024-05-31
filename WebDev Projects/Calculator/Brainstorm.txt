@@ -1,0 +1,26 @@
+Idea for app after creating MyCounterProgram
+
+Model look after iPhone calculator app.
+
+text and buttons all in one div element?
+- each row has different class element.
+
+How to display numbers? 
+E.g.,
+        Number1 input
+                    +
+        Number2 input
+---------------------
+[   numberpad here  ]
+
+History of previous calculations?
+- Flow on right side of calculator?
+- top down or down up
+- shouldn't cut off if someone reduces display size
+
+list of other calculator elements?
+e.g., exponentials, log, trig, etc.
+- Appear to the left of number pad?
+- how to adjust so if someone reduces window size, main number pad stays,
+  but other calculator elements drop below it?
+
