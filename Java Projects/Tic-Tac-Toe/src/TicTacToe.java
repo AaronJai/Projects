@@ -3,109 +3,92 @@ import java.awt.event.*;  // classes and interfaces for events within GUI
 import javax.swing.*;   // for modern and feature-rich GUI (like aesthetics)
 
 public class TicTacToe {
-    int boardWidth = 800;
-    int boardHeight = 700;  // 50px for text panel
+    private int boardWidth = 800;
+    private int boardHeight = 700;
+    private JFrame frame = new JFrame("Tic-Tac-Toe");
+    private JLabel textLabel = new JLabel();
+    private JPanel textPanel = new JPanel();
+    private JPanel boardPanel = new JPanel();
+    private JPanel scorePanel = new JPanel();
+    private JButton resetButton = new JButton("Reset Game");
+    private JButton[][] board = new JButton[3][3];
+    private String playerX = "X";
+    private String playerO = "O";
+    private String currentPlayer = playerX;
+    private boolean gameOver = false;
+    private int turns = 0;
+    private int playerXScore = 0;
+    private int playerOScore = 0;
 
-    JFrame frame = new JFrame("Tic-Tac-Toe");
-    JLabel textLabel = new JLabel();
-    JPanel textPanel = new JPanel();
-    JPanel boardPanel = new JPanel();
-    JPanel scorePanel = new JPanel();
-    JButton resetButton = new JButton("Reset Game");
+    public TicTacToe() {
+        initializeGUI();
+        initializeBoard();
+    }
 
-    JButton[][] board = new JButton[3][3]; // creates buttons for board
-    String playerX = "X";
-    String playerO = "O";
-    String currentPlayer = playerX;
-    // check for winners
-    boolean gameOver = false;
-    // check for tie
-    int turns = 0;
-    int playerXScore = 0;
-    int playerOScore = 0;
-
-
-    TicTacToe() {
-
-        // Nimbus to help make it work on Mac (visually)
+    private void initializeGUI() {
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         frame.setVisible(true);
         frame.setSize(boardWidth, boardHeight);
-        frame.setLocationRelativeTo(null); // Open in centre of screen
+        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         textLabel.setBackground(Color.darkGray);
-        textLabel.setForeground(Color.white); // Font Color
+        textLabel.setForeground(Color.white);
         textLabel.setFont(new Font("Arial", Font.BOLD, 50));
-        textLabel.setHorizontalAlignment(JLabel.CENTER); // Center text
+        textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setText("Tic-Tac-Toe");
         textLabel.setOpaque(true);
-        
-        textPanel.setLayout(new BorderLayout());
-        textPanel.add(textLabel); // adding label to panel (1)
 
-        // Reset Button
+        textPanel.setLayout(new BorderLayout());
+        textPanel.add(textLabel);
+
         resetButton.setFont(new Font("Arial", Font.BOLD, 16));
         resetButton.setFocusable(false);
         resetButton.addActionListener(e -> resetGame());
 
-        // Create a new panel for scores and reset button
-        JPanel bottomPanel = new JPanel (new BorderLayout());
+        JPanel bottomPanel = new JPanel(new BorderLayout());
         bottomPanel.add(scorePanel, BorderLayout.CENTER);
         bottomPanel.add(resetButton, BorderLayout.SOUTH);
 
-        // Add components to frame
-        frame.add(textPanel, BorderLayout.NORTH); // add panel to frame. Second argument pushes text to the top (2)
-        frame.add(boardPanel);
+        frame.add(textPanel, BorderLayout.NORTH);
         frame.add(bottomPanel, BorderLayout.SOUTH);
-
         boardPanel.setLayout(new GridLayout(3, 3));
-        boardPanel.setBackground(Color.darkGray);
         frame.add(boardPanel);
+        boardPanel.setBackground(Color.darkGray);
+    }
 
-        // adding buttons
+    private void initializeBoard() {
         for (int r = 0; r < 3; r++) {
             for (int c = 0; c < 3; c++) {
                 JButton tile = new JButton();
                 board[r][c] = tile;
                 boardPanel.add(tile);
-
                 tile.setBackground(Color.darkGray);
                 tile.setForeground(Color.white);
                 tile.setFont(new Font("Arial", Font.BOLD, 120));
                 tile.setFocusable(false);
-                // tile.setText(currentPlayer);
 
                 tile.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        // don't let tiles update if game is over
                         if (gameOver) return;
-
-                        // Figure out where action is coming from i.e., our buttons. e.getSource() itself comes as an error since it can come from
-                        // different sources but since we know it'll be from buttons we cast the type to buttons with the '(Jbutton)'. 
                         JButton tile = (JButton) e.getSource();
-                        if (tile.getText() == "") {
+                        if (tile.getText().isEmpty()) {
                             tile.setText(currentPlayer);
                             turns++;
                             checkWinner();
                             if (!gameOver) {
-                                 // to alternate player
-                                currentPlayer = currentPlayer == playerX ? playerO : playerX;
+                                currentPlayer = currentPlayer.equals(playerX) ? playerO : playerX;
                                 textLabel.setText(currentPlayer + "'s turn.");
                             }
-                           
                         }
-
                     }
                 });
-
             }
         }
     }
@@ -189,7 +172,7 @@ public class TicTacToe {
             }
             gameOver = true; // Set game over flag after updating the score
         }
-    
+        
         // Update scores after each win
         updateScores();
     }
