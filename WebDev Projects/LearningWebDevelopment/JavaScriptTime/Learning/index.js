@@ -162,3 +162,61 @@ mySubmit.onclick = function() {
         paymentResult.textContent = "You must select a payment type."
     }
 }
+
+//--------------------------------------------------------------------------------------------
+    /* Ternary operator
+        like in java
+        (conditon) ? (if true) : (if false);
+    */
+
+//--------------------------------------------------------------------------------------------
+    // SWITCH STATEMENTS
+
+let day = 1;
+
+switch (day) {
+    case 1:
+        console.log("It's Monday");
+        break;
+    case 2:
+        console.log("It's Tuesday");
+        break;
+    default:
+        console.log("wtf is that");
+}
+
+let testScore = 80;
+let letterGrade;
+
+switch (true) {
+    case testScore >= 80:
+        letterGrade = "HD";
+        console.log(`Congrats you got: ${letterGrade}`); // backticks support the embedded expression
+        break;
+    default:
+        console.log("You dumb")
+}
+
+//--------------------------------------------------------------------------------------------
+    // STRING METHODS
+
+// let userName = "ajai tan"
+
+// console.log(userName.charAt(0));                    // outputs 'A' 
+// console.log(userName.indexOf("j"));                 // outputs 1
+// console.log(userName.lastIndexOfindexOf("a"));      // outputs 2
+// console.log(userName.length);                       // outputs 4
+// userName.trim();                                    // remove trailing and tailing white space
+// userName.toLowerCase();
+// userName.toUpperCase();
+// userName.repeat(3);
+// userName.startsWith("a");                           // stores as boolean, same as .endsWith() and .includes()
+// userName.replaceAll('x', 'y');                      // replace 'x's with 'y's
+// userName.padStart(10, "0")                          // should have 10 characters, if not, pad with 0's, same concept with .padEnd()
+
+// userName.slice(x, y);                                        // x inclusive, y exclusive. -ve goes from reverse
+// let firstName = userNameslice.(0, fullname.indexOf(" "));    // allows for more dynamic name change
+// let lastName = userNameslice.(fullname.indexOf(" ") + 1);
+
+
+//--------------------------------------------------------------------------------------------
