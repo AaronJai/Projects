@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class HomePageGUI {
+public class StartGame {
     private JFrame frame;
     private JPanel homePanel;
     private JLabel titleLabel;
@@ -10,7 +10,7 @@ public class HomePageGUI {
     private JButton mediumButton;
     private JButton hardButton;
 
-    public HomePageGUI() {
+    public StartGame() {
         initializeUI();
     }
 
@@ -52,7 +52,7 @@ public class HomePageGUI {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(HomePageGUI::new);
+        SwingUtilities.invokeLater(StartGame::new);
     }
 
     enum Difficulty {

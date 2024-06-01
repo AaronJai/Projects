@@ -29,7 +29,7 @@ public class WhacAMole {
     private int score;
     private int highScore;
 
-    public WhacAMole(HomePageGUI.Difficulty difficulty) {
+    public WhacAMole(StartGame.Difficulty difficulty) {
         random = new Random(); // Initialise the random object
         initializeUI();
         setDifficultyLevel(difficulty);
@@ -122,7 +122,7 @@ public class WhacAMole {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                new HomePageGUI();
+                new StartGame();
             }
         });
 
@@ -140,7 +140,7 @@ public class WhacAMole {
         HARD
     }
 
-    private void setDifficultyLevel(HomePageGUI.Difficulty difficulty) {
+    private void setDifficultyLevel(StartGame.Difficulty difficulty) {
         switch (difficulty) {
             case NORMAL:
                 moleTimer = new Timer(1000, e -> setMole());
