@@ -3,175 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first Webpage</title>
-    <link rel="stylesheet" href="index1.css">
+    <title>Webpage Layout</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <header style="background-color: darksalmon;">
-        <h1>HELLO HI WELCOME</h1>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Products</a>
+    <header>
+        <h2>Header</h2>
     </header>
 
-    <h1>
-        <span style="background-color: tomato;">
-            This is a h1 heading
-        </span>
-    </h1>
-
-    <h2>
-        <div style="background-color: aquamarine;">
-            This is a h2 heading
-        </div>
-    </h2>
-    
-    <h3>this is a h3 heading</h3>
-    <h4>this is a h4 heading</h4>
-    <h5>this is a h5 heading</h5>
-    <br>
-    <hr>
-
-    <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. <span style="background-color: tomato;">Modi sed vel eum aliquam molestias omnis nostrum, iusto amet! Quo tempora optio sunt minus impedit perferendis voluptates ratione perspiciatis, quasi esse!</span>
-    </p>
-
-    <br>
-
-    <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. <div style="background-color: aquamarine;">Modi sed vel eum aliquam molestias omnis nostrum, iusto amet! Quo tempora optio sunt minus impedit perferendis voluptates ratione perspiciatis, quasi esse!</div>
-    </p>
-
-    <!------------------------------------------------------------------->
-    <br>
-    <!--unordered list-->
-    <h4>Groceries</h4>
-    <ul>
-        <li>milk</li>
-        <li>eggs</li>
-        <li>Coffee supplies</li>
-        <ul>
-            <li>coffee beans</li>
-            <li>sugar</li>
-        </ul>
-    </ul>
-
-    <!--ordered list-->
-    <h4>To-Do</h4>
-    <ol>
-        <li>eat</li>
-        <li>work</li>
-        <li>play</li>
-    </ol>
-
-    <!--description list (key-value pairs) (description tags - description definitions)-->
-    <dl style="background-color: lightgreen; border:2px rgb(167, 164, 0) solid;">
-        <dt>Joe</dt> 
-        <dd>mama</dd>
-        <dt>Dragon</dt> 
-        <dd>deez nuts</dd>
-    </dl>
-    <hr>
-
-    <a href="lyrics.html"
-    target="_blank">
-        Open some Lyrics
-    </a>
-    <hr>
-    <br>
-
-    <h3>store hours</h3>
-    <!--tr = table row, th = table header, td = table data-->
-    <table border="1" style="background-color: black;"> 
-        <tr align="center" style="background-color: lightblue;">
-            <th width="100">Sunday</th>
-            <th width="100">Monday</th>
-            <th width="100">Tuesday</th>
-            <th width="100">Wednesday</th>
-            <th width="100">Thursday</th>
-            <th width="100">Friday</th>
-            <th width="100">Saturday</th>
-        </tr>
-        <tr align="center" style="background-color: aliceblue;">
-            <td>11-6</td>
-            <td>9-5</td>
-            <td>9-5</td>
-            <td>9-5</td>
-            <td>9-9</td>
-            <td>9-5</td>
-            <td>9-5</td>
-        </tr>
-    </table>
-    <br>
-    <hr>
-
-    <a href="https://fanfox.net/manga/sousou_no_frieren/c061/1.html" target="_blank">
-    <button style="font-size: 25px; background-color: gray; color:lightblue; border-radius: 15px;">click me</button>
-    </a>
-    <br>
-    <hr>
- <!--action attribute sends data to some location. methods GET for insensitive data, POST for sensitive data
-ENCTYPE helps if sending large files for encryption-->
-    <form action="index.php" method="POST" enctype="multipart/form-data">
-        <label for="username">username:</label>
-        <input type="text" id="username" placeholder="type here" minlength="6" maxlength="12"><br>
+    <nav class="navbar">
         
-        <label for="password" type="password">password:</label>
-        <input type="password" id="password" placeholder="type here" minlength="8"><br>
+    </nav>
 
-        <label for="email" type="email">email:</label>
-        <input type="email" id="email" placeholder="something@gmail.com"><br>
+    <main>
+        <aside>
+            <h2>This is aside</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni distinctio ipsa sunt aperiam accusamus magnam aspernatur et, ipsum, dignissimos minima nisi, blanditiis repudiandae vitae incidunt quas. Voluptatum velit eius tempore.</p>
+        </aside>
         
-        <label for="phone" type="phone">phone #:</label>
-        <input type="tel" id="phone" placeholder="0123-456-789" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"><br>
+        <section>
+            <h2>This is a section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, iure sapiente expedita aspernatur accusamus id. Eos debitis harum velit, animi, pariatur, reprehenderit error porro deleniti doloribus magnam labore saepe dolorum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi laudantium autem ad eius sunt voluptatibus vel numquam ex ullam? Ullam accusantium odio necessitatibus adipisci iure incidunt ipsam id molestias eos.</p>
+        </section>
 
-        <label for="bday">birthdate</label>
-        <input type="date" id="bday"><br>
-
-        <label for="quantity">quantity</label>
-        <input type="number" id="quantity" min="0" max="99" value=1><br>
-
-        <label for="mr">Mr.</label>
-        <input type="radio" id="mr" name="title"><br> 
-        <label for="ms">Ms.</label>
-        <input type="radio" id="ms" name="title"><br>
-        <label for="dr">Dr.</label>
-        <input type="radio" id="dr" name="title"><br>
-
-        <label for="pay">payment</label>
-        <select>
-            <option value="visa">Visa</option>
-            <option value="mastercard">MasterCard</option>
-            <option value="giftcard">GiftCard</option>
-        </select><br>
-
-        <label for="subscribe">Subscribe</label>
-        <input type="checkbox" id="subscribe"><br>
         
-        <label for="comment">Comments</label>
-        <textarea id="comment" rows="3" cols="25"></textarea><br>
+        <article>
+            <h2>This is an article</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, iure sapiente expedita aspernatur accusamus id. Eos debitis harum velit, animi, pariatur, reprehenderit error porro deleniti doloribus magnam labore saepe dolorum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi laudantium autem ad eius sunt voluptatibus vel numquam ex ullam? Ullam accusantium odio necessitatibus adipisci iure incidunt ipsam id molestias eos.</p>
+        </article>
 
-        <label for="file">File</label>
-        <input type="file" id="file" accept="jpg, png">
+    </main>
 
-        <input type="reset"><br>
-        <input type="submit">
-
-    </form>
-
-    <div class="pagination">
-        <a href="index2.html"><</a>
-        <a href="index2.html">1</a>
-        <a href="index.html" class="active">2</a>
-        <a href="lyrics.html">3</a>
-        <a href="lyrics.html">></a>
-    </div>
-    
-    <footer style="background-color: darksalmon;">
-        <hr>
-        author: Aaron<br>
-        &copy; copright reserved lmfao<br>
-        <small><a href="mailto:apple@optout.com">apple@optout.com</a></small>
+    <footer>
+        <h2>Footer</h2>
     </footer>
 </body>
 </html>
