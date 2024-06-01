@@ -23,4 +23,3 @@ e.g., exponentials, log, trig, etc.
 - Appear to the left of number pad?
 - how to adjust so if someone reduces window size, main number pad stays,
   but other calculator elements drop below it?
-
