@@ -100,3 +100,39 @@ document.getElementById("mySubmit").onclick = function(){
     Math.abs            // absolute value
     Math.sign           // -1 for negative num, 1 for positive, 0 for 0.
 */
+
+//--------------------------------------------------------------------------------------------
+    // IF STATEMENTS
+    // remember statement precedence important
+
+const myText = document.getElementById("myText")
+const mySubmit = document.getElementById("mySubmit")
+const result = document.getElementById("myH3")
+let age;
+// let hasLicense = true;
+
+mySubmit.onclick = function() {
+
+    age = myText.value;
+    age = Number(age);
+
+    if(age >= 18){
+        result.textContent = "You old";
+        // nested if statement
+        // if (hasLicense){
+        //     result.textContent = "big boy got license";
+        // }
+        // else {
+        //     result.textContent = "haha loser";
+        // }
+    }
+    // else if statement
+    else if (age < 0){
+        result.textContent = "you a fetus or something";
+    }
+    else{
+        result.textContent = "you a baby";
+    }    
+}
+
+
