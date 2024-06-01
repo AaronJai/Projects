@@ -35,13 +35,33 @@
 
     <!-- IF STATEMENTS -->
     <!-- associate for (label) with id (input) to make clicking text focus on input field -->
-    <label for="myText">Enter your age:         
+    <!-- <label for="myText">Enter your age:         
         <input type="text" name="" id="myText">
     </label>
     <button type="submit" id="mySubmit">Submit</button><br>
-    <h3 id="myH3"></h3>
+    <h3 id="myH3"></h3> -->
 
+    <!-- CHECKED PROPERTY -->
+    <input type="checkbox" id="myCheckBox">
+    <label for="myCheckBox">Subscribe</label>
+    <br>
+    <!-- name attribute means you can only select 1 element -->
+    <input type="radio" id="VisaButton" name="card">   
+    <label for="VisaButton">Visa</label>
+    <br>
+    <input type="radio" id="MasterCardButton" name="card">
+    <label for="MasterCardButton">MasterCard</label>
+    <br>
+    <input type="radio" id="PayPalButton" name="card">
+    <label for="PayPalButton">PayPal</label>
+    <br><br>
+    <button type="submit" id="mySubmit">Submit</button>
+    <br>
+    <p id="subResult"></p>
+    <p id="paymentResult"></p>
     
+
+
     <script src="index.js"></script>
 </body>
 </html>

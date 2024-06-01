@@ -105,34 +105,60 @@ document.getElementById("mySubmit").onclick = function(){
     // IF STATEMENTS
     // remember statement precedence important
 
-const myText = document.getElementById("myText")
-const mySubmit = document.getElementById("mySubmit")
-const result = document.getElementById("myH3")
-let age;
-// let hasLicense = true;
+// const myText = document.getElementById("myText");
+// const mySubmit = document.getElementById("mySubmit");
+// const result = document.getElementById("myH3");
+// let age;
+// // let hasLicense = true;
+
+// mySubmit.onclick = function() {
+
+//     age = myText.value;
+//     age = Number(age);
+
+//     if (age >= 100) {
+//         result.textContent = "Damn you old"
+//     }
+//     else if (age == 0) {
+//         result.textContent = "You a fetus or something"
+//     }
+//     else if (age >= 18) {
+//         result.textContent = "You can enter this site"
+//     }
+//     else {
+//         result.textContent = "Who are you"
+//     }
+// }
+
+
+//--------------------------------------------------------------------------------------------
+    // Checked property
+const myCheckBox = document.getElementById("myCheckBox");
+const VisaButton = document.getElementById("VisaButton");
+const MasterCardButton = document.getElementById("MasterCardButton");
+const PayPalButton = document.getElementById("PayPalButton");
+const mySubmit = document.getElementById("mySubmit");
+const subResult = document.getElementById("subResult");
+const paymentResult = document.getElementById("paymentResult");
 
 mySubmit.onclick = function() {
-
-    age = myText.value;
-    age = Number(age);
-
-    if(age >= 18){
-        result.textContent = "You old";
-        // nested if statement
-        // if (hasLicense){
-        //     result.textContent = "big boy got license";
-        // }
-        // else {
-        //     result.textContent = "haha loser";
-        // }
+    if (myCheckBox.checked) {           // evaluates to true or false
+        subResult.textContent = "You are subscribed!";
     }
-    // else if statement
-    else if (age < 0){
-        result.textContent = "you a fetus or something";
+    else {
+        subResult.textContent = "You are NOT subscribed!";
     }
-    else{
-        result.textContent = "you a baby";
-    }    
+
+    if (VisaButton.checked) {
+        paymentResult.textContent = "You are paying with Visa."
+    }
+    else if (MasterCardButton.checked) {
+        paymentResult.textContent = "You are paying with MasterCard."
+    }
+    else if (PayPalButton.checked) {
+        paymentResult.textContent = "You are paying with PayPal."
+    }
+    else {
+        paymentResult.textContent = "You must select a payment type."
+    }
 }
-
-
