@@ -48,7 +48,7 @@ let firstName = `Aaron`;
     2. professional way = HTML textbox
 */
 
-let username;
+// let username;
 // username = window.prompt("What's your username?");
 // console.log(username);
 
@@ -215,8 +215,42 @@ switch (true) {
 // userName.padStart(10, "0")                          // should have 10 characters, if not, pad with 0's, same concept with .padEnd()
 
 // userName.slice(x, y);                                        // x inclusive, y exclusive. -ve goes from reverse
-// let firstName = userNameslice.(0, fullname.indexOf(" "));    // allows for more dynamic name change
-// let lastName = userNameslice.(fullname.indexOf(" ") + 1);
+// let firstName = userName.slice(0, fullname.indexOf(" "));    // allows for more dynamic name change
+// let lastName = userName.slice(fullname.indexOf(" ") + 1);
 
 
 //--------------------------------------------------------------------------------------------
+    /* METHOD CHAINING
+        - Calling one method after another in one continuous line of code
+    */
+
+// let username = window.prompt("Enter your username: ");
+
+// WITHOUT:
+
+// username = username.trim();
+// let letter = username.charAt(0);
+// letter = letter.toUpperCase();
+
+// let extraChars = username.slice(1);
+// extraChars = extraChars.toLowerCase();
+
+// username = letter + extraChars;
+// console.log(username);
+
+// WITH:
+// username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).toLowerCase();
+// console.log(username);
+
+//--------------------------------------------------------------------------------------------
+    /*  STRICT INEQUALITY OPERATOR
+    You have assignment operator =
+    and comparison operator ==
+    but also strict equality operator === (compare if values AND dataype is equal)
+    - theres also strict INequality operator !==
+    */
+
+    /*
+    while, do-while, for loops, -- all same format as java
+    
+    */
