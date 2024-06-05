@@ -39,7 +39,7 @@ button{
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: .25s;
+    transition: background-color .25s;
 }
 
 button:hover{
