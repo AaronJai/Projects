@@ -1,0 +1,209 @@
+body{
+    width: 100vw;                                   /*viewport width*/
+    height: 100vh;                                  /*viewport height - does lock us from scrolling though */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: rgb(44, 41, 41);
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rect{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+#colour{
+    animation: simpleColour;                        /* Doesn't do anything yet by itself */
+    animation-duration: 2s;
+    animation-timing-function: ease-in;             /* Set speed of start, etc. Req fine-tuning */
+    animation-iteration-count: infinite;            /* Sets how many times it loops */
+    animation-direction: alternate-reverse;
+    animation-fill-mode: forwards;                  /* Keeps the colour after a loop ending */
+    
+}
+
+/* CREATING ANIMATIONS */
+@keyframes simpleColour {
+    0%{
+        background-color: lightblue;
+     }
+    25%{
+        background-color: rgb(173, 182, 230);
+    }
+    50%{
+        background-color: rgb(188, 173, 230);
+    }
+    75%{
+        background-color: rgb(195, 173, 230);
+    }
+    100%{
+        background-color: rgb(230, 173, 211);
+    }
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+#gradient{
+    background: linear-gradient(
+        45deg,
+        #ff7e5f,
+        #feb47b,
+        #ffca8a,
+        #f4e87c,
+        #a5eb8d,
+        #57e3a1,
+        #47cad1,
+        #7098da,
+        #a47fd0
+    );
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s infinite;                   /* shorthand syntax */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes gradientAnimation {
+    0%{
+        background-position: 0% 50%;                            /* 0% horizontal 50% vertical */
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+#shake{
+    background-color: rgba(238, 225, 51, 0.815);
+    animation: shake 0.3s infinite ease;
+}
+
+@keyframes shake {
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(2deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    75%{
+        transform: rotate(2deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+#movement{
+    background-color: #ff7e5f;
+    /* linear helps smoothness - stops snapping */
+    animation: movement 3s infinite linear alternate;
+    
+}
+
+/* can also ask GPT to make one of these movement animations*/
+@keyframes movement {
+    0%{
+        transform: translate(0px, 0px);
+    }
+    10%{
+        transform: translate(25px, 0);
+    }
+    20%{
+        transform: translate(45px, 25px);
+    }
+    30%{
+        transform: translate(25px, 45px);
+    }
+    40%{
+        transform: translate(0px, 45px);
+    }
+    50%{
+        transform: translate(-25px, 45px);
+    }
+    60%{
+        transform: translate(-45px, 25px);
+    }
+    70%{
+        transform: translate(-45px, 0px);
+    }
+    80%{
+        transform: translate(-45px, -25px);
+    }
+    90%{
+        transform: translate(-25px, -45px);
+    }
+    100%{
+        transform: translate(0px, -50px);
+    }
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+#pulse{
+    background-color: #feb47b;
+    animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+#shape{
+    background-color: #47cad1;
+    /* Use forwards to keep circle shape at end */
+    animation: shape 3s linear infinite;
+}
+
+@keyframes shape {
+    0%{
+        border-radius: 0;
+    }
+    16%{
+        border-radius: 50% 0 0 0;           /* from right corner */
+    }
+    32%{
+        border-radius: 50% 50% 0 0;         
+    }
+    48%{
+        border-radius: 50% 50% 50% 0;
+    }
+    64%{
+        border-radius: 50%;
+    }
+    80%{
+        border-radius: 0;
+    }
+    100%{
+        border-radius: 50%;
+    }
+    /* To make it look less snappy with 'infinite' */
+    100%{
+        border-radius: 0;
+    }
+}
