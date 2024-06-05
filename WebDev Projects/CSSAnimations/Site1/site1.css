@@ -87,6 +87,7 @@ button:hover{
     color: #f58080;
     background-color: black;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 @keyframes slideIn {
