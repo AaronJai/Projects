@@ -1,13 +1,13 @@
 body{
     width: 100vw;                                   /*viewport width*/
-    height: 100vh;                                  /*viewport height - does lock us from scrolling though */
+    height: 100vh;                                  /*viewport height - Locks us from scrolling */
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+    flex-direction: column;                         /* Arranges flex items in a column (vertical direction) */
+    justify-content: center;                        /* Centers flex items vertically within the body */
+    align-items: center;                            /* Centers flex items horizontally within the body */
+    gap: 50px;                                      /* Sets a gap of 50px between flex items */
     background-color: rgb(44, 41, 41);
 }
 
