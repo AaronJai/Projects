@@ -250,7 +250,64 @@ switch (true) {
     - theres also strict INequality operator !==
     */
 
-    /*
+//--------------------------------------------------------------------------------------------
+    /*  LOOPS
     while, do-while, for loops, -- all same format as java
-    
     */
+
+//--------------------------------------------------------------------------------------------
+    // ARRAYS       
+
+// let fruits = ["apple", "orange", "banana"]
+        // access through fruits[0], etc.
+// fruits[0] = "coconut";
+// fruits[3] = "coconut";
+// .push();                     adds to end      
+// .pop()                       removes last element. 
+// .unshift()                   adds something to front, 
+// .shift()                     removes from end
+// .length()                    to get array length
+// .indexOf("apple")            gets index of element
+// .sort()                      alphabetical order
+// .sort().reverse()            reverse alphabetical order
+
+    // NORMAL LOOP
+// for (let i = 0; i < fruits.length; i++) {
+//     console.log(fruits[i]);
+// }
+
+    // SHORT HAND LOOP
+// for (let fruit of fruits) {
+//     console.log(fruits[i]);
+// }
+
+    // REVERSE LOOP
+// for (let i = fruits.length - 1; i >= 0; i--) {
+//     console.log(fruits[i]);
+// }
+
+
+
+//--------------------------------------------------------------------------------------------
+    /* SPREAD OPERATOR
+        ... allows an iterable such as an array or string to be expanded into separate elements
+        (unpacks the element)
+    */
+
+// let numbers = [1, 2, 3, 4, 5];
+// let maxmimum1 = Math.max(numbers);                  // output NaN, we can't place array into method
+// let maxmimum2 = Math.max(...numbers);               // output 5
+
+// let username = "Aaron Tan";
+// let letters1 =  [...username];                      // (9) ['A', 'a', 'r', 'o', 'n', ' ', 'T', 'a', 'n']
+// let letters2 = [...username].join("-")              // A-a-r-o-n- -T-a-n
+// console.log(letters2);
+
+// let fruits = ["apple", "orange", "banana"];
+// let vegetables = ["carrots", "celery", "potato"]
+
+// let foods1 = [...fruits];                           // no change
+// let foods2 = [...fruits, ...vegetables, "eggs"]     // Joins all together
+// console.log(foods2);                        
+
+//--------------------------------------------------------------------------------------------
