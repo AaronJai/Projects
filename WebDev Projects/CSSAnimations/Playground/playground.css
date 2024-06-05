@@ -38,20 +38,20 @@ body{
 
 /* CREATING ANIMATIONS */
 @keyframes simpleColour {
-    0%{
-        background-color: lightblue;
-     }
-    25%{
-        background-color: rgb(173, 182, 230);
+    0% {
+        background-color: #add8e6; /* Light Blue */
     }
-    50%{
-        background-color: rgb(188, 173, 230);
+    25% {
+        background-color: #b3cde0; /* Lighter Blue */
     }
-    75%{
-        background-color: rgb(195, 173, 230);
+    50% {
+        background-color: #b3b3e0; /* Light Purple */
     }
-    100%{
-        background-color: rgb(230, 173, 211);
+    75% {
+        background-color: #d1b3e0; /* Soft Purple */
+    }
+    100% {
+        background-color: #e6b3cc; /* Soft Pinkish Purple */
     }
 }
 
