@@ -114,12 +114,12 @@ body{
 #movement{
     background-color: #ff7e5f;
     /* linear helps smoothness - stops snapping */
-    animation: movement 3s infinite linear alternate;
+    animation: movement 3s infinite linear;
     
 }
 
 /* can also ask GPT to make one of these movement animations*/
-@keyframes movement {
+/* @keyframes movement {
     0%{
         transform: translate(0px, 0px);
     }
@@ -153,12 +153,43 @@ body{
     100%{
         transform: translate(0px, -50px);
     }
+} */
+
+@keyframes movement {
+    0% {
+        transform: translate(0, -50px);
+    }
+    12.5% {
+        transform: translate(35.36px, -35.36px);
+    }
+    25% {
+        transform: translate(50px, 0);
+    }
+    37.5% {
+        transform: translate(35.36px, 35.36px);
+    }
+    50% {
+        transform: translate(0, 50px);
+    }
+    62.5% {
+        transform: translate(-35.36px, 35.36px);
+    }
+    75% {
+        transform: translate(-50px, 0);
+    }
+    87.5% {
+        transform: translate(-35.36px, -35.36px);
+    }
+    100% {
+        transform: translate(0, -50px);
+    }
 }
+
 
 /* -------------------------------------------------------------------------------------------------- */
 #pulse{
     background-color: #feb47b;
-    animation: pulse 1.2s infinite ease-in-out;
+    animation: pulse 1.5s infinite ease-in-out;
 }
 
 @keyframes pulse {
