@@ -70,7 +70,7 @@ body{
         #a47fd0
     );
     background-size: 200% 200%;
-    animation: gradientAnimation 3s infinite;                   /* shorthand syntax */
+    animation: gradientAnimation 3s infinite linear;                   /* shorthand syntax */
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
