@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+label, button {
+    margin: 10px 0;
+}
+
+input[type="number"] {
+    width: 50px;
+}
+
+.toggle-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toggle {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle.on {
+    background-color: #9dd1a7; /* Subtle green for on */
+}
+
+.toggle.on:hover{
+    background-color: rgb(106, 206, 126); /* Subtle green for on */
+
+}
+
+.toggle.off {
+    background-color: #f3a1a1; /* Subtle red for off */
+}
+
+.toggle.off:hover{
+    background-color: #ec7a7a; /* Subtle green for on */
+
+}
+
+#output {
+    margin-top: 20px;
+    font-size: 1.2em;
+    word-break: break-all;
+}
