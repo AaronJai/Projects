@@ -320,35 +320,90 @@ switch (true) {
     rest = bundles separate elements into an array
     */
 
-function openFridge(...foods) {
-    console.log(...foods);                         // pizza ChickenNCheese Sushi  -- resting then spreading
-    console.log(foods);                            // (3) ['pizza', 'ChickenNCheese', 'Sushi']
-}    
+// function openFridge(...foods) {
+//     console.log(...foods);                         // pizza ChickenNCheese Sushi  -- resting then spreading
+//     console.log(foods);                            // (3) ['pizza', 'ChickenNCheese', 'Sushi']
+// }    
 
-function getFood(...foods) {
-    return foods;
+// function getFood(...foods) {
+//     return foods;
+// }
+
+// const food1 = "pizza";
+// const food2 = "ChickenNCheese";
+// const food3 = "Sushi";
+// openFridge(food1, food2, food3);                    
+
+// const foods = getFood(food1, food2, food3);
+// console.log(foods);                                // (3) ['pizza', 'ChickenNCheese', 'Sushi']
+
+// function sum(...numbers) {                         // same concept for e.g., finding average
+//     let result = 0;
+//     for (let number of numbers) {
+//         result += number;
+//     }
+//     return result;
+// }
+
+// const total = sum(1, 2, 3, 4, 5);
+
+// function combineStrings(...strings) {
+//     return strings.join(" ");
+// }
+
+// const fullName = combineStrings("Mr", "Spongebob");
+
+//--------------------------------------------------------------------------------------------
+/*  CALLBACK
+    a function passed as an argument to another function.
+    used to handle asynchronous operations:
+    1. reading a file,
+    2. network requests,
+    3. interacting with databases.
+    "when done, call this next".
+*/
+
+function hello(callback) {
+    console.log("Hello");
+    callback();
+
 }
 
-const food1 = "pizza";
-const food2 = "ChickenNCheese";
-const food3 = "Sushi";
-openFridge(food1, food2, food3);                    
-
-const foods = getFood(food1, food2, food3);
-console.log(foods);                                // (3) ['pizza', 'ChickenNCheese', 'Sushi']
-
-function sum(...numbers) {                         // same concept for e.g., finding average
-    let result = 0;
-    for (let number of numbers) {
-        result += number;
-    }
-    return result;
+function goodbye() {
+    console.log("GoodBye");
 }
 
-const total = sum(1, 2, 3, 4, 5);
-
-function combineStrings(...strings) {
-    return strings.join(" ");
+hello(goodbye);                 // calls goodbye after hello.
+////////////////////////////////////
+function sum(callback, x, y) {
+    let result = x + y;
+    callback(result);
 }
 
-const fullName = combineStrings("Mr", "Spongebob");
+function displayConsole(result) {
+    console.log(result);
+}
+
+sum(displayConsole, 1, 2);      // does x+y then displays.
+
+//--------------------------------------------------------------------------------------------
+/*  forEach()
+    method used to iterate over elements of an array and apply a specified function (callback)
+    to each element.
+    array.forEach(callback)
+*/
+
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(double);
+numbers.forEach(display);
+
+function display(element) {
+    console.log(element);
+}
+
+function double(element, index, array) {
+    array[index] = element * 2
+}
+
+//--------------------------------------------------------------------------------------------
