@@ -467,3 +467,50 @@ switch (true) {
 // }
 
 //--------------------------------------------------------------------------------------------
+
+/*  FUNCTION DECLARATION
+    defining a reusable block of code that performs a specific task
+*/
+
+// function hello() {
+//     console.log('Hello');
+// }
+
+/* FUNCTION EXPRESSION
+    defining functions as values or variables
+    useful when using a function only once, so dont define one itself.
+*/
+
+// const hello = function() {
+//     console.log('Hello');
+// }
+// hello();
+
+// setTimeout(function() {
+//     console.log("hello")
+// }, 3000);
+
+//--------------------------------------------------------------------------------------------
+/*  ARROW FUNCTIONS
+    concise ways to write function expressions,
+    useful for simple functions only being used once.
+    (parameters) => some code
+*/
+
+// const hello = () => console.log("Hello");
+// hello();
+const hello = (name, age) => {console.log(`Hello ${name}`)          // {} brackets if >1 parameter
+                              console.log(`You are ${age} years old`)};
+hello("Bro", 21);
+
+const numbers = [1, 2, 3, 4, 5];
+
+const squares = numbers.map((element) => Math.pow(element, 2));
+console.log(squares);
+
+
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
