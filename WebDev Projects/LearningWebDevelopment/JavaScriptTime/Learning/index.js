@@ -213,6 +213,7 @@ switch (true) {
 // userName.startsWith("a");                           // stores as boolean, same as .endsWith() and .includes()
 // userName.replaceAll('x', 'y');                      // replace 'x's with 'y's
 // userName.padStart(10, "0")                          // should have 10 characters, if not, pad with 0's, same concept with .padEnd()
+// userName.split("x")                                 // split into subtstring where you meet 'x'
 
 // userName.slice(x, y);                                        // x inclusive, y exclusive. -ve goes from reverse
 // let firstName = userName.slice(0, fullname.indexOf(" "));    // allows for more dynamic name change
@@ -363,28 +364,28 @@ switch (true) {
     "when done, call this next".
 */
 
-function hello(callback) {
-    console.log("Hello");
-    callback();
+// function hello(callback) {
+//     console.log("Hello");
+//     callback();
 
-}
+// }
 
-function goodbye() {
-    console.log("GoodBye");
-}
+// function goodbye() {
+//     console.log("GoodBye");
+// }
 
-hello(goodbye);                 // calls goodbye after hello.
-////////////////////////////////////
-function sum(callback, x, y) {
-    let result = x + y;
-    callback(result);
-}
+// hello(goodbye);                 // calls goodbye after hello.
+// ////////////////////////////////////
+// function sum(callback, x, y) {
+//     let result = x + y;
+//     callback(result);
+// }
 
-function displayConsole(result) {
-    console.log(result);
-}
+// function displayConsole(result) {
+//     console.log(result);
+// }
 
-sum(displayConsole, 1, 2);      // does x+y then displays.
+// sum(displayConsole, 1, 2);      // does x+y then displays.
 
 //--------------------------------------------------------------------------------------------
 /*  forEach()
@@ -393,17 +394,76 @@ sum(displayConsole, 1, 2);      // does x+y then displays.
     array.forEach(callback)
 */
 
-let numbers = [1, 2, 3, 4, 5];
+// let numbers = [1, 2, 3, 4, 5];
 
-numbers.forEach(double);
-numbers.forEach(display);
+// numbers.forEach(double);
+// numbers.forEach(display);
 
-function display(element) {
-    console.log(element);
-}
+// function display(element) {
+//     console.log(element);
+// }
 
-function double(element, index, array) {
-    array[index] = element * 2
-}
+// function double(element, index, array) {
+//     array[index] = element * 2
+// }
+
+//--------------------------------------------------------------------------------------------
+/*  .map()
+    accepts a callback and applies that function to each element of an array.
+    Similar to forEach, but RETURNS A NEW ARRAY
+*/
+
+// const numbers = [1, 2, 3, 4, 5];
+// const squares = numbers.map(square);
+// console.log(squares);
+
+// function square(element) {
+//     return Math.pow(element, 2);
+// }
+
+// const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+// const formattedDates = dates.map(formatDates);
+// console.log(formattedDates)
+
+// function formatDates(element) {
+//     const parts = element.split("-");
+//     return `${parts[2]}/${parts[1]}/${parts[0]}`;
+// }
+
+//--------------------------------------------------------------------------------------------
+/*  .filter()
+    creates new array by filtering out elements
+*/
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7];
+// let evenNums = numbers.filter(isEven);
+// console.log(evenNums);
+
+// function isEven(element) {
+//     return element % 2 === 0;
+// }
+
+//--------------------------------------------------------------------------------------------
+/* .reduce()
+    reduce elements of an array to a single value
+*/
+
+// const prices = [5, 30, 10, 25, 15, 20];
+
+// const total = prices.reduce(sum);
+// console.log(`$${total.toFixed(2)}`);
+
+// function sum(previous, next) {
+//     return previous + next;
+// }
+
+// const grades = [75, 50, 90, 80, 65, 95];
+
+// const maximum =  grades.reduce(getMax);
+// console.log(maximum);
+
+// function getMax(accumulator, element) {
+//     return Math.max(accumulator, element);
+// }
 
 //--------------------------------------------------------------------------------------------
