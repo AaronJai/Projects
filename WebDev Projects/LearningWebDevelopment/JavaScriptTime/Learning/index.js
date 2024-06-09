@@ -498,18 +498,115 @@ switch (true) {
 */
 
 // const hello = () => console.log("Hello");
-// hello();
-const hello = (name, age) => {console.log(`Hello ${name}`)          // {} brackets if >1 parameter
-                              console.log(`You are ${age} years old`)};
-hello("Bro", 21);
+// // hello();
+// const hello = (name, age) => {console.log(`Hello ${name}`)          // {} brackets if >1 parameter
+//                               console.log(`You are ${age} years old`)};
+// hello("Bro", 21);
 
-const numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
-const squares = numbers.map((element) => Math.pow(element, 2));
-console.log(squares);
+// const squares = numbers.map((element) => Math.pow(element, 2));
+// console.log(squares);
+
+//--------------------------------------------------------------------------------------------
+    // OBJECTS
+
+// const person = {
+//     firstName: "Spongebob",
+//     lastName: "Squarepants",
+//     age: 30,
+//     isEmployed: true,
+//     sayHello: function(){console.log("Hi I'm Spongebob.")},
+//     sayBye: () => console.log("Bye")
+// }
+
+// console.log(person);
+// person.sayHello();
+// person.sayBye();
+
+//--------------------------------------------------------------------------------------------
+    // CONSTRUCTORS
+// function Car(make, model, year, color) {
+//     this.make = make,
+//     this.model = model,
+//     this.year = year,
+//     this.color = color,
+//     this.drive = function(){console.log(`You drive the ${this.model}`)}
+// }
+
+// const car1 = new Car("Toyota", "Camry", 2007, "White");
+
+//--------------------------------------------------------------------------------------------
+    // CLASSES
+class Product{
+    constructor(name, price){
+        this.name = name,
+        this.price = price
+    }
+
+    // Don't need 'function' keyword inside class
+    displayProduct() {
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: ${this.price}`);
+    }
+}
+
+const product1 = new Product("Up&Go", 5);
+product1.displayProduct();
+
+//--------------------------------------------------------------------------------------------
+    // STATIC
+    //  Dont need to construct class 
+class MathUtil{
+    static PI = 3.14159
+
+    static getDiameter(radius) {
+        return radius * 2;
+    }
+}
+
+console.log(MathUtil.PI);
+console.log(MathUtil.getDiameter(2));
 
 
 //--------------------------------------------------------------------------------------------
+    // inheritance - just like Java
+    // super
+
+//--------------------------------------------------------------------------------------------
+    // sort()
+
+// let numbers = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+
+// numbers.sort((a, b) => a - b ); // b-a for reverse order
+// console.log(numbers);
+
+// const people = [{name: "Spongebob", age: 30, gpa: 3.0},
+//                 {name: "Patrick", age: 37, gpa: 1.5},
+//                 {name: "Squidward", age: 51, gpa: 2.5}, 
+//                 {name: "Sandy", age: 27, gpa: 4}]
+
+// people.sort((a,b) => a.age - b.age);
+// console.log(people);
+
+// // sorting a property that contains a string within an object (e.g, name)
+// people.sort((a, b) => a.name.localeCompare(b.name));
+// console.log(people);
+
+//--------------------------------------------------------------------------------------------
+    // SHUFFLE AN ARRAY
+        // Fisher-Yates Algorithm
+const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+shuffle(cards);
+console.log(cards);
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const random = Math.floor(Math.random() * (i + 1));
+        [array[i], array[random]] = [array[random], array[i]]
+    }
+}
+
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
