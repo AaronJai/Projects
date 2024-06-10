@@ -172,30 +172,30 @@ mySubmit.onclick = function() {
 //--------------------------------------------------------------------------------------------
     // SWITCH STATEMENTS
 
-let day = 1;
+// let day = 1;
 
-switch (day) {
-    case 1:
-        console.log("It's Monday");
-        break;
-    case 2:
-        console.log("It's Tuesday");
-        break;
-    default:
-        console.log("wtf is that");
-}
+// switch (day) {
+//     case 1:
+//         console.log("It's Monday");
+//         break;
+//     case 2:
+//         console.log("It's Tuesday");
+//         break;
+//     default:
+//         console.log("wtf is that");
+// }
 
-let testScore = 80;
-let letterGrade;
+// let testScore = 80;
+// let letterGrade;
 
-switch (true) {
-    case testScore >= 80:
-        letterGrade = "HD";
-        console.log(`Congrats you got: ${letterGrade}`); // backticks support the embedded expression
-        break;
-    default:
-        console.log("You dumb")
-}
+// switch (true) {
+//     case testScore >= 80:
+//         letterGrade = "HD";
+//         console.log(`Congrats you got: ${letterGrade}`); // backticks support the embedded expression
+//         break;
+//     default:
+//         console.log("You dumb")
+// }
 
 //--------------------------------------------------------------------------------------------
     // STRING METHODS
@@ -608,6 +608,59 @@ function shuffle(array) {
 }
 
 //--------------------------------------------------------------------------------------------
+/* DATE OBJECTS
+    objects that contain values representing dates and times. can be changed and formatted.
+*/
+
+// Date(year, month, day, hour, minute, second, ms)
+const date1 = new Date();
+const date2 = new Date(2024, 1, 23, 2, 3, 4);   // 0 is Jan, 11 is Nov
+const date3 = new Date("2024-02-23T12:00:00Z")  // Z is central time.
+
+console.log(date2);
+console.log(date3);
+
+const year = date1.getFullYear
+const month = date1.getMonth
+const day = date1.getDate();
+
 //--------------------------------------------------------------------------------------------
+/*  CLOSURE
+    function defined in another function (inner function has access to var and scope outside of it)
+    allow for private variables and state maintenance,
+    Used frequently in JS frameworks: React, Vue, Angular
+*/
+function outer() {
+    let message = "Hello";
+    
+    function inner() {
+        console.log(message);
+    }
+    inner();    // Without this, calling outer(); doesnt work
+}
+
+outer();
+///////////////////////////////////////////////////////////////
+function createCounter() {
+    let count = 0;
+
+    function increment() {
+        count++;
+        console.log(`Count increased to ${count}`)
+    }
+
+    function getCount() {
+        return count;
+    }
+
+    return {increment, getCount};
+}
+
+const counter = createCounter();
+counter.increment();
+counter.increment();
+
+console.log(counter.getCount());
+
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
