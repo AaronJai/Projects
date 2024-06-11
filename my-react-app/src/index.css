@@ -1,0 +1,63 @@
+.card{
+  border: 2px solid rgb(103, 103, 103);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(72, 72, 72);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  justify-self: auto;
+  max-width: 250px;
+  display: inline-block;
+}
+
+.card .card-image{
+  max-width: 60%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.card .card-title{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.card .card-description{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10;
+}
+
+/* -------------------------------------------------------------------------------- */
+.student{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  padding: 10px;
+  border: 1px solid black; 
+  display: block;
+}
+
+.student p {
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------------- */
+.list-category{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 3px solid;
+  border-radius: 5px;
+  background-color: darkgray;
+}
+
+.list-items li {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+}
+
+.list-items li:hover {
+  background-color: rgb(182, 182, 182);
+  cursor: pointer;
+}
