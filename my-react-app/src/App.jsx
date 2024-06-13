@@ -1,16 +1,20 @@
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
-import Food from './Food.jsx'
-import Card from './Card.jsx'
-import Button from './Button/Button.jsx'
-import Student from './Student.jsx'
-import UserGreeting from './UserGreeting.jsx'
-import List1 from './List1.jsx'
-import List2 from './List2.jsx'
-import Button2 from './Button.jsx'
-import ProfilePicture from './ProfilePicture.jsx'
-import UseState from './useStateHook.jsx'
-import OnChange from './onChangeHandler.jsx'
+import Header from './1Header.jsx'
+import Footer from './2Footer.jsx'
+import Food from './3Food.jsx'
+import Card from './4Card.jsx'
+import Button from './5Button/Button.jsx'
+import Student from './6Student.jsx'
+import UserGreeting from './7UserGreeting.jsx'
+import List1 from './8List1.jsx'
+import List2 from './9List2.jsx'
+import Button2 from './10Button.jsx'
+import ProfilePicture from './11ProfilePicture.jsx'
+import UseState from './12useStateHook.jsx'
+import OnChange from './13onChangeHandler.jsx'
+import UpdaterFunction from './14UpdaterFunction.jsx'
+import UFObjects from './15U.F-Objects.jsx'
+import UFArrays from './16U.F-Arrays.jsx'
+import UFAO from './17U.F-ArrayOfObjects.jsx'
 
 function App() {
 
@@ -50,6 +54,11 @@ function App() {
 
       <UseState/>
       <OnChange/>
+      <UpdaterFunction/>
+      <UFObjects/>
+      <UFArrays/>
+      <UFAO/>
+
       <Footer/>
     </>
   );
