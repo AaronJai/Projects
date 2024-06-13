@@ -9,7 +9,8 @@ import List1 from './List1.jsx'
 import List2 from './List2.jsx'
 import Button2 from './Button.jsx'
 import ProfilePicture from './ProfilePicture.jsx'
-import MyComponent from './MyComponent.jsx'
+import UseState from './useStateHook.jsx'
+import OnChange from './onChangeHandler.jsx'
 
 function App() {
 
@@ -47,7 +48,8 @@ function App() {
       <Button2/>
       <ProfilePicture/>
 
-      <MyComponent/>
+      <UseState/>
+      <OnChange/>
       <Footer/>
     </>
   );
