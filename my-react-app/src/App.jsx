@@ -15,6 +15,8 @@ import UpdaterFunction from './14UpdaterFunction.jsx'
 import UFObjects from './15U.F-Objects.jsx'
 import UFArrays from './16U.F-Arrays.jsx'
 import UFAO from './17U.F-ArrayOfObjects.jsx'
+import UseEffect from './18UseEffect.jsx'
+import UseEffect2 from './18.1UseEffect.jsx'
 
 function App() {
 
@@ -58,6 +60,9 @@ function App() {
       <UFObjects/>
       <UFArrays/>
       <UFAO/>
+
+      <UseEffect/>
+      <UseEffect2/>
 
       <Footer/>
     </>
