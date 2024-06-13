@@ -1,4 +1,4 @@
-This react application is me going through learning the React Library
+This application is my journey learning React
 
 To create
 > npm create vite@latest
