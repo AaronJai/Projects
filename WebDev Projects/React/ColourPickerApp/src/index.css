@@ -1,0 +1,56 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Colour-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1{
+  margin: 50px;
+  font-size: 3rem;
+}
+
+.Colour-display {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid darkgray;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  transition: 0.1s ease;
+}
+
+.Colour-display p{
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+}
+
+label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="color"] {
+  width: 75px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid darkgray;
+}
